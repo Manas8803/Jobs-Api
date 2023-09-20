@@ -18,14 +18,14 @@ const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 //* extra packages
-app.use(
-	rateLimiter({
-		windowMs: 20 * 60 * 1000, //& 15 minutes
-		limit: 100, //& Limit each IP to 100 requests per `window` (here, per 15 minutes)
-		message:
-			"Too many accounts created from this IP, please try again after 15 minutes",
-	})
-);
+// app.use(
+// 	rateLimiter({
+// 		windowMs: 20 * 60 * 1000, //& 15 minutes
+// 		limit: 100, //& Limit each IP to 100 requests per `window` (here, per 15 minutes)
+// 		message:
+// 			"Too many accounts created from this IP, please try again after 15 minutes",
+// 	})
+// );
 app.use(express.json());
 app.use(xss);
 app.use(helmet());
