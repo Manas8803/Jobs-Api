@@ -6,6 +6,12 @@ const {
 	UnauthenticatedError,
 } = require("../errors");
 
+const allUsers = async (req, res) => {
+	console.log("In all Users");
+	const Users = await User.find();
+	res.status(200).json(Users);
+};
+
 const register = async (req, res) => {
 	const tempUser = await User.create({ ...req.body });
 	const token = tempUser.createJWT();
@@ -32,4 +38,4 @@ const login = async (req, res) => {
 	res.status(StatusCodes.OK).json({ name, token });
 };
 
-module.exports = { register, login };
+module.exports = { register, login, allUsers };
